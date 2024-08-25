@@ -2,8 +2,7 @@
 
 # Demo
 
-[![Check the demo](![image](https://github.com/user-attachments/assets/549cfa36-dad1-43e7-aaf5-cc296fdca50c)
-)](https://www.youtube.com/watch?v=iG6coQoRhbs)
+[![Check the demo](https://github.com/user-attachments/assets/549cfa36-dad1-43e7-aaf5-cc296fdca50c)](https://www.youtube.com/watch?v=iG6coQoRhbs)
 
 ## Introduction
 This repository is part of a comprehensive banking application that consists of three main components: **userApp**, **backOffice**, and **backendBank**. Together, these repositories provide a full-featured banking system, enabling both users and administrators to manage accounts, perform transactions, and monitor system activity.

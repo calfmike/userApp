@@ -1,6 +1,7 @@
 # Banking Application
 
 # Demo
+A little go trhough on the user final application reviewn the postman collection and seeing a hint of the BO yet to pulish
 
 [![Check the demo](https://github.com/user-attachments/assets/549cfa36-dad1-43e7-aaf5-cc296fdca50c)](https://www.youtube.com/watch?v=iG6coQoRhbs)
 

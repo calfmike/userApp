@@ -2,7 +2,7 @@
 
 # Demo
 
-[![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=iG6coQoRhbs)
+[![Video Title](https://github.com/calfmike/userApp/main/thumbnail.png)](https://www.youtube.com/watch?v=iG6coQoRhbs)
 
 ## Introduction
 This repository is part of a comprehensive banking application that consists of three main components: **userApp**, **backOffice**, and **backendBank**. Together, these repositories provide a full-featured banking system, enabling both users and administrators to manage accounts, perform transactions, and monitor system activity.

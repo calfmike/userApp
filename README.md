@@ -1,103 +1,77 @@
-# Banking Application
+# Aplicación Bancaria — Demo Full-Stack
 
-# Demo
-A little go trhough on the user final application reviewn the postman collection and seeing a hint of the BO yet to pulish
+Un sistema bancario completo construido como proyecto personal para demostrar desarrollo full-stack y lógica de dominio de core bancario, de punta a punta.
 
-[![Check the demo](https://github.com/user-attachments/assets/549cfa36-dad1-43e7-aaf5-cc296fdca50c)](https://www.youtube.com/watch?v=iG6coQoRhbs)
+🎥 **[Ver la demo](https://www.youtube.com/watch?v=iG6coQoRhbs)** — un recorrido por la app de usuario final, la colección de Postman y un adelanto del back office.
 
-## Introduction
-This repository is part of a comprehensive banking application that consists of three main components: **userApp**, **backOffice**, and **backendBank**. Together, these repositories provide a full-featured banking system, enabling both users and administrators to manage accounts, perform transactions, and monitor system activity.
+## Visión general
 
-## System Architecture
+El sistema se divide en tres repositorios que trabajan en conjunto:
 
-### Frontend (userApp)
-- **Technology:** React.js, Material UI
-- **Purpose:** A user-facing interface for individual users to manage their accounts, view transactions, and perform banking operations.
-- **Key Features:**
-  - User dashboard with account balance and recent transactions.
-  - Interfaces for performing transfers, deposits, and withdrawals.
-  - Detailed views of each account, including transaction history and current balance.
+| Componente | Repositorio | Stack | Propósito |
+|-----------|-------------|-------|-----------|
+| **userApp** | `userApp` | React, Material UI | App de usuario final para gestionar cuentas y operar |
+| **backOffice** | `backOffice` | React, Material UI | Interfaz administrativa de usuarios, cuentas, transacciones y audit logs |
+| **backendBank** | `backendBank` | Node.js, Express, MongoDB | API REST, autenticación, procesamiento de transacciones y almacenamiento |
 
-### Frontend (backOffice)
-- **Technology:** React.js, Material UI
-- **Purpose:** An administrative interface for managing users, accounts, transactions, and audit logs.
-- **Key Features:**
-  - User management with role-based access control.
-  - Account creation and management.
-  - Viewing and filtering of audit logs.
+## Arquitectura
 
-### Backend (backendBank)
-- **Technology:** Node.js, Express, MongoDB
-- **Purpose:** Handles API requests, user authentication, transaction processing, and data storage for both **userApp** and **backOffice**.
-- **Key Components:**
-  - JWT-based authentication.
-  - API endpoints for managing users, accounts, transactions, and audit logs.
-  - MongoDB models for Users, Accounts, Transactions, and AuditLogs.
+```
+┌─────────────┐     ┌──────────────┐
+│   userApp   │     │  backOffice  │
+│  (React)    │     │   (React)    │
+└──────┬──────┘     └──────┬───────┘
+       │                   │
+       └─────────┬─────────┘
+                 │  API REST (JWT)
+          ┌──────▼───────┐
+          │  backendBank │
+          │ Node/Express │
+          └──────┬───────┘
+                 │
+          ┌──────▼───────┐
+          │   MongoDB    │
+          └──────────────┘
+```
 
-## Key Features
+## Funcionalidades principales
 
-### User Management
-- Registration, login, and profile management for users.
-- Role-based access control (Admins vs. Regular Users).
+### App de usuario
+- Dashboard con saldo de cuenta y transacciones recientes
+- Transferencias, depósitos y extracciones
+- Vistas de detalle por cuenta con historial completo de transacciones
 
-### Account Management
-- Account creation, viewing, and management.
-- Display of account balances and transaction history.
+### Back office (admin)
+- Gestión de usuarios con control de acceso basado en roles
+- Creación y administración de cuentas
+- Visualización y filtrado de audit logs
 
-### Transaction Management
-- Perform deposits, withdrawals, and transfers between accounts.
-- View transaction history and revert transactions (admin feature).
+### API backend
+- Autenticación basada en JWT
+- Endpoints REST para usuarios, cuentas, transacciones y audit logs
+- Modelos de MongoDB: Users, Accounts, Transactions, AuditLogs
 
-### Audit Logging
-- Record and view significant actions performed in the system.
-- Filter logs by date, user, or action type.
+## Stack tecnológico
 
-## Use Cases
+**Frontend:** React, Material UI
+**Backend:** Node.js, Express, MongoDB
+**Auth:** JWT
+**Testing de API:** colección de Postman incluida
 
-### User Actions (userApp)
-- **Dashboard Access:** Users log in and access their personalized dashboard.
-- **View Account Details:** Users can view detailed information about their accounts.
-- **Perform Transactions:** Users can initiate transfers, deposits, and withdrawals.
-- **Update Profile:** Users can update their personal information and change their password.
+## Cómo arrancarlo
 
-### Admin Actions (backOffice)
-- **Manage Users:** Admins can manage user roles and permissions.
-- **Manage Accounts:** Admins can create and manage user accounts.
-- **View Audit Logs:** Admins can view detailed logs of system actions.
+```bash
+# Backend (backendBank)
+npm install
+npm start
 
-## API Endpoints
+# Frontend (userApp / backOffice)
+npm install
+npm start
+```
 
-### User Management
-- **POST /auth/register:** Register a new user.
-- **POST /auth/login:** Authenticate user and generate JWT token.
-- **GET /users/profile:** Retrieve the authenticated user’s profile.
-- **PUT /users/profile:** Update user profile.
+> Configurá la URL base de la API y el connection string de MongoDB en el archivo de entorno antes de ejecutar.
 
-### Account Management
-- **POST /accounts/create:** Create a new account.
-- **GET /accounts/user/:userId:** Get all accounts for a specific user.
-- **GET /accounts/:accountId:** Get details of a specific account.
+## Sobre este proyecto
 
-### Transaction Management
-- **POST /transactions/deposit:** Perform a deposit.
-- **POST /transactions/withdraw:** Perform a withdrawal.
-- **POST /transactions/transfer:** Transfer funds between accounts.
-- **GET /transactions/account/:accountId:** Get all transactions for a specific account.
-
-### Audit Logs
-- **GET /audit/logs:** Retrieve all audit logs.
-- **GET /audit/filter:** Filter audit logs by criteria.
-
-## Security Considerations
-- **Authentication:** JWT-based authentication for securing API endpoints.
-- **Authorization:** Role-based access control to restrict actions based on user roles.
-- **Input Validation:** Ensuring all user inputs are validated and sanitized.
-
-## Error Handling
-- Comprehensive error handling across all API endpoints.
-- Use of standardized error messages for client-side handling.
-
-## Conclusion
-This banking application offers a robust solution for managing user accounts, performing financial transactions, and maintaining system integrity through audit logging. The integration of **userApp**, **backOffice**, and **backendBank** ensures a seamless experience for both users and administrators.
-
-
+Construido para practicar desarrollo full-stack con un dominio bancario — cuentas, transacciones, acceso por roles y trazas de auditoría — reflejando el tipo de sistemas que valido profesionalmente como QA Analyst especializado en core bancario y plataformas financieras.
